@@ -5,7 +5,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const validUrl=u=>{try{const x=new URL(u);return ['https:','http:'].includes(x.protocol)?x.href:null}catch{return null}};
 const publisher=u=>{try{let h=new URL(u).hostname.replace(/^www\./,'');return ({'nytimes.com':'The New York Times','wsj.com':'The Wall Street Journal','youtu.be':'YouTube','youtube.com':'YouTube','livenowfox.com':'LiveNOW from FOX','instagram.com':'Instagram'})[h]||h}catch{return 'External source'}};
 const fmtDate=s=>{let d=new Date(String(s)+'T12:00:00');return isNaN(d)?s:d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})};
-Promise.all([fetch('posts.json').then(r=>r.json()),...['fb-0556','fb-0569','fb-0585','fb-0589'].map(id=>fetch('additional/'+id+'.json').then(r=>{if(!r.ok)throw Error(id);return r.json()}))]).then(([base,...extra])=>{posts=[...(Array.isArray(base)?base:[]),...extra];render()}).catch(()=>{main.innerHTML='<p>Unable to load the archive.</p>'});
+Promise.all([fetch('posts.json').then(r=>r.json()),...['fb-0556','fb-0564','fb-0565','fb-0566','fb-0569','fb-0576','fb-0579','fb-0585','fb-0588','fb-0589'].map(id=>fetch('additional/'+id+'.json').then(r=>{if(!r.ok)throw Error(id);return r.json()}))]).then(([base,...extra])=>{posts=[...(Array.isArray(base)?base:[]),...extra];render()}).catch(()=>{main.innerHTML='<p>Unable to load the archive.</p>'});
 document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{view=b.dataset.view;filter='All';search='';render()});
 function card(p){
  const content=String(p.fullText||p.text||'');
