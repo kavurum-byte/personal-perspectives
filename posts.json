@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "id": "fb-0531",
+    "date": "2026-10-28",
+    "category": "Investing & Economics",
+    "title": "China’s auto industry and global overcapacity",
+    "text": "Car industry is fascinating and difficult to understand the winners and losers!\n\nThe simple version: China built far more car factories than its own people will buy cars, so it’s dumping the extra cars on the rest of the world very cheaply.",
+    "urls": [
+      "https://www.wsj.com/business/autos/china-cars-domestic-sale-declines-983ced7b"
+    ]
+  },
+  {
+    "id": "fb-0532",
+    "date": "2026-10-25",
+    "category": "Travel & Culture",
+    "title": "Reflections on the Elizabeth Holmes movie",
+    "text": "We just saw The Elizabeth Holmes Movie — You Can See Everything (2026) in the theater (more people actively participating in a movie theater I have ever seen)!\n\nMy take: I couldn't quite figure out \"who is zooming whom\", who is lying or being duped, or who the joke is on.",
+    "urls": [
+      "https://youtu.be/bULvmSb_nOM"
+    ]
+  },
+  {
+    "id": "fb-0535",
+    "date": "2026-10-19",
+    "category": "Science & Technology",
+    "title": "AI, artificial intimacy, and human relationships",
+    "text": "AI, Artificial Intimacy, and the Future of Human Relationships\n\nThis is a summary of Ezra Klein’s conversation with MIT sociologist Sherry Turkle, author of Artificial Intimacy: Who We Become When We Talk to Machines.\n\nI found Turkle to be way too pessimistic! I agree children are off limits, but adults will need to make their own decisions AND we will need long term data as to \"outcomes.\"",
+    "urls": [
+      "https://www.nytimes.com/2026/10/14/opinion/ezra-klein-podcast-sherry-turkle.html"
+    ]
+  },
+  {
+    "id": "fb-0536",
+    "date": "2026-10-18",
+    "category": "Investing & Economics",
+    "title": "Business schools, leadership, and the public good",
+    "text": "Highly interesting editorial in the NYT, about business schools and MBAs, that is unflattering and has implications for our politics, our economy, and balance between labor and capital (public good vs. private good).",
+    "urls": [
+      "https://www.nytimes.com/2026/10/18/opinion/business-school-mba-harvard-cornell.html"
+    ]
+  },
+  {
+    "id": "fb-0537",
+    "date": "2026-10-05",
+    "category": "Personal Reflections",
+    "title": "Lifelong learning through OLLI",
+    "text": "I am aware of the Osher Lifelong Learning Program (OLLI). It appears to be an outstanding program for those interested in ongoing education in a broad array of subjects, especially for those on the verge of retirement!",
+    "urls": [
+      "https://www.youtube.com/live/cI_TXLhgOHo"
+    ]
+  },
+  {
+    "id": "fb-0540",
+    "date": "2026-09-23",
+    "category": "Science & Technology",
+    "title": "Jensen Huang on AI innovation and adoption",
+    "text": "Well this is a wide ranging interview with Jensen, godfather of AI, perhaps the best ambassador for the industry and positioned at the center. He is adamantly against any slowdown or major regulations.",
+    "urls": [
+      "https://www.nytimes.com/2026/09/23/opinion/ezra-klein-podcast-jensen-huang.html"
+    ]
+  },
+  {
+    "id": "fb-0544",
+    "date": "2026-09-18",
+    "category": "Science & Technology",
+    "title": "AI safety, regulation, and political will",
+    "text": "Well, this is a very good summary of where we are with AI safety and the need for regulation! This is not perfect but is a sensible distillation and a practical approach. Do we have the political will and governance system in this country now to do this?",
+    "urls": [
+      "https://www.nytimes.com/2026/09/18/opinion/ai-tech-danger-apocalypse-government.html"
+    ]
+  },
+  {
+    "id": "fb-0548",
+    "date": "2026-09-14",
+    "category": "Medicine & Health",
+    "title": "Autonomous AI and the future of healthcare",
+    "text": "Trump administration Integrating AI into healthcare: what can go wrong?\n\nMy thinking involves comparing autonomous vehicles (Waymo, Zoox, Tesla Robotaxi) with \"autonomous AI doctors\".\n\nThere will be risks and mishaps during the deployment phase, but eventually, the benefits will far outweigh those risks.",
+    "urls": [
+      "https://www.nytimes.com/2026/09/14/health/ai-doctors-medicare-fda.html"
+    ]
+  }
+]
