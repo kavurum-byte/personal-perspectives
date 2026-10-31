@@ -193,9 +193,11 @@
     "sources": [
       {
         "publisher": "Freakonomics Radio / Apple Podcasts",
-        "title": "Discussion of medical aid in dying",
+        "title": "678. Who Gets to Choose a “Good Death”?",
         "url": "https://podcasts.apple.com/us/podcast/678-who-gets-to-choose-a-good-death/id354668519?i=1000773293642",
-        "access": "Audio / video link"
+        "access": "Audio / video link",
+        "author": "Stephen J. Dubner",
+        "publicationDate": "2026-06-19"
       }
     ]
   },
@@ -333,7 +335,7 @@
     "sources": [
       {
         "publisher": "YouTube",
-        "title": "Video discussion with Yuval Noah Harari",
+        "title": "AI has hacked the code of human civilization | Yuval Noah Harari",
         "url": "https://www.youtube.com/watch?v=hBtVGwuJzpk",
         "access": "Audio / video link"
       }
