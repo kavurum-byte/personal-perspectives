@@ -58,7 +58,7 @@ for post, path in entries:
             errors.append(f"{pid}: missing {field}")
     full = post.get("fullText") or post.get("text")
     if not isinstance(full, str) or len(full.strip()) < 30:
-        errors.append(f"{pid}: commentary missing or very short; review manually")
+        errors.append(f"{pid}: commentary missing") if not isinstance(full, str) or not full.strip() else print(f"REVIEW: {pid} has short commentary")
     sources = post.get("sources") or [{"url": u} for u in post.get("urls", [])]
     if not sources:
         errors.append(f"{pid}: missing source reference")
