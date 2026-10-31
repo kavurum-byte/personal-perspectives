@@ -340,5 +340,24 @@
         "access": "Audio / video link"
       }
     ]
+  },
+  {
+    "id": "fb-0559",
+    "date": "2026-08-29",
+    "category": "Personal Reflections",
+    "title": "The 60-Something Crisis and meaningful retirement",
+    "excerpt": "A reflection on Barbara L. Pagano’s book about retirement, purpose, and finding meaning in the next chapter of life.",
+    "text": "A reflection on Barbara L. Pagano’s book about retirement, purpose, and finding meaning in the next chapter of life.",
+    "urls": [
+      "https://www.amazon.com/60-Something-Crisis-Live-Extraordinary-Retirement/dp/1538155753"
+    ],
+    "sources": [
+      {
+        "publisher": "Book reference",
+        "title": "The 60-Something Crisis",
+        "url": "https://www.amazon.com/60-Something-Crisis-Live-Extraordinary-Retirement/dp/1538155753",
+        "access": "Book reference"
+      }
+    ]
   }
 ]
