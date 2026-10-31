@@ -12,7 +12,7 @@ function card(p){
  const teaser=String(p.excerpt||content.slice(0,235).trim());
  const hasMore=content.length>teaser.length+20;
  const links=(p.sources||((p.urls||[]).map(url=>({url})))).filter(s=>validUrl(s.url));
- const sourceHtml=links.length?'<div class="sources"><div class="source-label">SOURCE / REFERENCE</div>'+links.map(s=>'<div class="source-row"><span class="source-name">'+esc(s.publisher||publisher(s.url))+'</span>'+ (s.title?'<span class="source-title">'+esc(s.title)+'</span>':'')+(s.author?'<span class="source-author">By '+esc(s.author)+'</span>':'')+'<a href="'+esc(validUrl(s.url))+'" target="_blank" rel="noopener noreferrer">View original source ↗</a></div>').join('')+'</div>':'';
+ const sourceHtml=links.length?'<div class="sources"><div class="source-label">SOURCE / REFERENCE</div>'+links.map(s=>'<div class="source-row"><span class="source-name">'+esc(s.publisher||publisher(s.url))+'</span>'+ (s.title?'<span class="source-title">'+esc(s.title)+'</span>':'')+(s.author?'<span class="source-author">By '+esc(s.author)+'</span>':'')+(s.access?'<span class="access-note">'+esc(s.access)+'</span>':'')+'<a href="'+esc(validUrl(s.url))+'" target="_blank" rel="noopener noreferrer">View original source ↗</a></div>').join('')+'</div>':'';
  return '<article class="entry"><div class="entry-meta"><span class="pill">'+esc(p.category||'Other')+'</span><time>'+esc(fmtDate(p.date||''))+'</time></div><h3>'+esc(p.headline||p.title||'Untitled')+'</h3><div class="entry-label">MY COMMENTARY</div><p class="excerpt">'+esc(teaser)+'</p>'+(hasMore?'<details class="full-post"><summary>Read full post</summary><div class="full-text">'+esc(content)+'</div></details>':'')+sourceHtml+'</article>';
 }
 function render(){
