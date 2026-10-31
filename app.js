@@ -1,4 +1,4 @@
-const topics=['Medicine & Health','Investing & Economics','Politics & Society','Science & Technology','Travel & Culture','Personal Reflections','Other'];
+const topics=['Medicine & Health','Investing & Economics','Politics & Society','Science & Technology','Personal Travel','Entertainment / Culture','Religion','Personal Reflections','Other'];
 let posts=[],view='home',filter='All',search='';
 const main=document.querySelector('#main');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
