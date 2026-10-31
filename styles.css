@@ -2,3 +2,5 @@
 /* Expanded entries show the complete original text in place of the preview. */
 .entry:has(.full-post[open]) .excerpt{display:none}
 .full-post[open] summary{margin-top:8px}
+
+.nav .nav-link{display:inline-flex;align-items:center;color:#d8e5ed;text-decoration:none;padding:9px 15px;border-radius:5px;font-size:14px;line-height:1.7}.nav .nav-link:hover,.nav .nav-link:focus{background:#e9f1f5;color:#152d43}
