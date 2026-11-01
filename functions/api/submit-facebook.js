@@ -14,13 +14,13 @@ export async function onRequestPost({request,env}){
   try{
     const current=await fetch(path,{headers});if(!current.ok)return respond(502,{error:'Could not load the website archive from GitHub.'});
     const file=await current.json();
-    const decoded=Uint8Array.from(atob(file.content.replace(/\\s/g,'')),c=>c.charCodeAt(0));
+    const decoded=Uint8Array.from(atob(file.content.replace(/\s/g,'')),c=>c.charCodeAt(0));
     const posts=JSON.parse(new TextDecoder().decode(decoded));
     if(posts.some(p=>(p.urls||[]).includes(url.href)))return respond(200,{status:'duplicate',message:'This Facebook link is already on the website.'});
     const id='fb-link-'+crypto.randomUUID();
     const title=data.category==='Jokes, Memes & Humor'?'Facebook humor post (link)':'Facebook post (link)';
     posts.unshift({id,date:new Date().toISOString().slice(0,10),category:data.category,title,text:'Open the original Facebook post to view its content.',excerpt:'View the original Facebook post.',urls:[url.href],sources:[{publisher:'Facebook',url:url.href,title:'Original Facebook post'}]});
-    const bytes=new TextEncoder().encode(JSON.stringify(posts,null,2)+'\\n');
+    const bytes=new TextEncoder().encode(JSON.stringify(posts,null,2)+'\n');
     let binary='';for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.slice(i,i+8192));
     const saved=await fetch(path,{method:'PUT',headers,body:JSON.stringify({message:'Publish Facebook link from website form',sha:file.sha,content:btoa(binary)})});
     if(!saved.ok)return respond(saved.status===409?409:502,{error:saved.status===409?'Another update occurred. Please submit again.':'GitHub could not save the post.'});
