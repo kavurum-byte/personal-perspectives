@@ -1,0 +1,43 @@
+name: Publish Facebook link submissions
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: write
+  issues: write
+jobs:
+  publish:
+    if: github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, '[Facebook Link] ')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add approved-owner link to posts
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          python3 - <<'PY'
+          import json,os,re,urllib.parse,datetime
+          body=os.environ['ISSUE_BODY']
+          match=re.search(r'^Facebook URL:\s*(https://\S+)\s*$',body,re.M)
+          cat=re.search(r'^Category:\s*(.+?)\s*$',body,re.M)
+          if not match or not cat: raise SystemExit('Missing link or category')
+          url=match.group(1).strip()
+          p=urllib.parse.urlparse(url)
+          if p.scheme!='https' or (p.hostname or '').lower() not in ('facebook.com','www.facebook.com','m.facebook.com','web.facebook.com','fb.watch'): raise SystemExit('Not a supported Facebook URL')
+          category=cat.group(1).strip()
+          if category not in ('Jokes, Memes & Humor','Medicine & Health','Investing & Economics','Politics & Society','Science & Technology','Personal Travel','Entertainment / Culture','Religion','Personal Reflections','Other'): raise SystemExit('Invalid category')
+          with open('posts.json',encoding='utf8') as f: posts=json.load(f)
+          if any(url in (x.get('urls') or []) for x in posts): print('Already in archive');quit()
+          title='Facebook humor post (link)' if category=='Jokes, Memes & Humor' else 'Facebook post (link)'
+          posts.insert(0,{'id':'fb-link-issue-'+os.environ['ISSUE_NUMBER'],'date':datetime.date.today().isoformat(),'category':category,'title':title,'text':'Open the original Facebook post to view its content.','excerpt':'View the original Facebook post.','urls':[url],'sources':[{'publisher':'Facebook','url':url,'title':'Original Facebook post'}]})
+          with open('posts.json','w',encoding='utf8') as f:json.dump(posts,f,ensure_ascii=False,indent=2);f.write('\n')
+          PY
+      - name: Commit website update
+        run: |
+          if git diff --quiet -- posts.json; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posts.json
+          git commit -m "Publish submitted Facebook link from issue #${{ github.event.issue.number }}"
+          git push
