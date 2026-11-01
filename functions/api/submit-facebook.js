@@ -12,7 +12,7 @@ export async function onRequestPost({request,env}){
   const headers={'authorization':'Bearer '+env.GITHUB_TOKEN,'accept':'application/vnd.github+json','x-github-api-version':'2022-11-28','content-type':'application/json'};
   const path='https://api.github.com/repos/'+REPO+'/contents/posts.json';
   try{
-    const current=await fetch(path,{headers});if(!current.ok)return respond(502,{error:'Could not load the website archive from GitHub.'});
+    const current=await fetch(path,{headers});if(!current.ok){const status=current.status;const reason=({401:'GitHub rejected the token.',403:'GitHub denied access or rate-limited the request.',404:'Repository or posts.json was not found or is inaccessible.'})[status]||'GitHub returned an unexpected response.';return respond(502,{error:`Could not load the website archive from GitHub (HTTP ${status}). ${reason}`});}
     const file=await current.json();
     const decoded=Uint8Array.from(atob(file.content.replace(/\s/g,'')),c=>c.charCodeAt(0));
     const posts=JSON.parse(new TextDecoder().decode(decoded));
