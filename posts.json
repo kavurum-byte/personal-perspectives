@@ -1,5 +1,23 @@
 [
   {
+    "id": "fb-link-2fef6f27-3dcb-45d6-af71-120c2062ca49",
+    "date": "2026-11-01",
+    "category": "Jokes, Memes & Humor",
+    "title": "Facebook humor post (link)",
+    "text": "Open the original Facebook post to view its content.",
+    "excerpt": "View the original Facebook post.",
+    "urls": [
+      "https://www.facebook.com/share/p/1CikouxDxE/"
+    ],
+    "sources": [
+      {
+        "publisher": "Facebook",
+        "url": "https://www.facebook.com/share/p/1CikouxDxE/",
+        "title": "Original Facebook post"
+      }
+    ]
+  },
+  {
     "id": "fb-link-issue-1",
     "date": "2026-10-31",
     "category": "Personal Reflections",
