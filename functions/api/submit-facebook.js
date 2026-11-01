@@ -18,8 +18,11 @@ export async function onRequestPost({request,env}){
     const posts=JSON.parse(new TextDecoder().decode(decoded));
     if(posts.some(p=>(p.urls||[]).includes(url.href)))return respond(200,{status:'duplicate',message:'This Facebook link is already on the website.'});
     const id='fb-link-'+crypto.randomUUID();
-    const title=data.category==='Jokes, Memes & Humor'?'Facebook humor post (link)':'Facebook post (link)';
-    posts.unshift({id,date:new Date().toISOString().slice(0,10),category:data.category,title,text:'Open the original Facebook post to view its content.',excerpt:'View the original Facebook post.',urls:[url.href],sources:[{publisher:'Facebook',url:url.href,title:'Original Facebook post'}]});
+    const submittedTitle=typeof data.title==='string'?data.title.trim().slice(0,120):'';
+    const submittedDescription=typeof data.description==='string'?data.description.trim().slice(0,500):'';
+    const title=submittedTitle||(data.category==='Jokes, Memes & Humor'?'Facebook humor post (link)':'Facebook post (link)');
+    const commentary=submittedDescription||'View the original Facebook post.';
+    posts.unshift({id,date:new Date().toISOString().slice(0,10),category:data.category,title,text:commentary,fullText:commentary,excerpt:commentary,urls:[url.href],sources:[{publisher:'Facebook',url:url.href,title:'Original Facebook post'}]});
     const bytes=new TextEncoder().encode(JSON.stringify(posts,null,2)+'\n');
     let binary='';for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.slice(i,i+8192));
     const saved=await fetch(path,{method:'PUT',headers,body:JSON.stringify({message:'Publish Facebook link from website form',sha:file.sha,content:btoa(binary)})});
